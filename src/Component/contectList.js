@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const ContectList = (props) => {
   const sendIndex = (contact) => {
-    props.getIndex(props.contect.indexOf(contact));
+    const result = window.confirm("Are you Sure you want to Delete");
+    if (result) props.getIndex(props.contect.indexOf(contact));
   };
   const list = props.contect.map((contact, index) => {
     return <ContectCard contact={contact} key={index} getContact={sendIndex} />;
