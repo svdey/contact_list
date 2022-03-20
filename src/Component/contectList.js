@@ -1,32 +1,28 @@
 import React from 'react'
-import profile from '../assets/contect2.png'
+import ContectCard from "./ContectCard";
+import { Link } from "react-router-dom";
 
 const ContectList = (props) => {
-  const list = props.contect.map((contact)=>{
-    return (
-      <div className='container'>
-      <div className='row'>
-        <div className='col-2'>
-          <img className="navbar-brand" src={profile} alt=""/> 
-        </div>
-        <div className='col'>
-          <div className='row'>
-            <p className='fw-bold'>{contact.name}</p>
-          </div>
-          <div className='row'>
-            <p className='fst-italic'>{contact.email}</p>
-            <a href='/'>F2ED</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    );
+  const sendIndex = (contact) => {
+    props.getIndex(props.contect.indexOf(contact));
+  };
+  const list = props.contect.map((contact, index) => {
+    return <ContectCard contact={contact} key={index} getContact={sendIndex} />;
   });
   return (
     <>
-      {list}
+      <div className="pt-3">
+        <h1>
+          Contact List
+          <Link to="/add">
+            <button className="btn btn-primary float-end">Add Contect</button>
+          </Link>
+        </h1>
+        <br />
+        {list}
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default ContectList
