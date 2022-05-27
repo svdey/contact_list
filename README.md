@@ -29,13 +29,13 @@
 Clone the project
 
 ```bash
-  git clone https://github.com/svdey/contect_list.git
+  git clone https://github.com/svdey/contact_list.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd contect_list
+  cd contact_list
 ```
 
 Install dependencies
